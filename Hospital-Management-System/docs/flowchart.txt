@@ -1,0 +1,34 @@
+=== Patient Registration ===
+[Start] --> [Enter Details] 
+      --> [Validate Age, Name, BloodGroup]
+      --> {Valid?} 
+          |-- No --> [Throw InvalidInputException] --> [End]
+          |-- Yes --> [Generate Patient ID]
+                  --> [Save to Hospital List]
+                  --> [Write to patients.txt]
+                  --> [End]
+
+=== Appointment Booking ===
+[Start] --> [Enter PatientID, DoctorID, DateTime]
+      --> [Check Patient/Doctor Exist]
+          |-- No --> [Throw InvalidIdException] --> [End]
+          |-- Yes --> [Check Doctor Schedule]
+              |-- Conflict? --> [Throw DoubleBookingException] --> [End]
+              |-- No Conflict --> [Generate Appointment ID]
+                              --> [Set Status Scheduled]
+                              --> [Save to Appointments List]
+                              --> [Write to appointments.txt]
+                              --> [End]
+
+=== Bill Generation ===
+[Start] --> [Enter PatientID, AppointmentID, Costs, Discount]
+      --> [Check Valid IDs]
+          |-- No --> [Throw InvalidIdException]
+      --> [Validate Discount 0-100]
+          |-- No --> [Throw InvalidInputException]
+      --> [Fetch Doctor Fee]
+      --> [Calculate Total = Med + Room + Fee - Discount]
+      --> [Generate Bill ID]
+      --> [Save Bill List]
+      --> [Write to bills.txt]
+      --> [End]
