@@ -1,0 +1,3 @@
+admin|admin123|Admin
+doctor|doc123|Doctor
+reception|rec123|Receptionist
